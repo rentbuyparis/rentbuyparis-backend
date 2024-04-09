@@ -31,14 +31,14 @@
     "phone": {
       "type": "string"
     },
-    "contract": {
+    "address": {
+      "type": "text"
+    },
+    "contrat": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::contract.contract",
       "inversedBy": "locataires"
-    },
-    "address": {
-      "type": "text"
     }
   }
 }

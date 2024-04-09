@@ -2,7 +2,8 @@
   "collectionName": "components_contract_objects",
   "info": {
     "displayName": "object",
-    "icon": "clipboard-check"
+    "icon": "clipboard-check",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,28 +20,36 @@
       "type": "string"
     },
     "other": {
-      "type": "string"
+      "type": "string",
+      "default": "balcon / parking / jardin"
     },
     "equipments": {
-      "type": "text"
+      "type": "text",
+      "default": "Appartement entièrement meublé : ..."
     },
     "chauffage": {
-      "type": "string"
+      "type": "string",
+      "default": "Individuel"
     },
     "eau": {
-      "type": "string"
+      "type": "string",
+      "default": "Individuel"
     },
     "destination": {
-      "type": "string"
+      "type": "string",
+      "default": "Usage d'habitation"
     },
     "designation": {
-      "type": "string"
+      "type": "string",
+      "default": "Usage d'habitation"
     },
     "enumeration": {
-      "type": "string"
+      "type": "string",
+      "default": "Ascenseur et local poubelle"
     },
     "technology": {
-      "type": "text"
+      "type": "text",
+      "default": "Appartement fibré"
     }
   }
 }

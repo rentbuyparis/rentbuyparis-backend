@@ -15,11 +15,6 @@
     "date": {
       "type": "date"
     },
-    "rent": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::rent.rent"
-    },
     "contract": {
       "type": "media",
       "multiple": false,
@@ -28,17 +23,12 @@
         "files"
       ]
     },
-    "locataires": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::locataire.locataire",
-      "mappedBy": "contract"
-    },
     "montant": {
       "type": "string"
     },
     "conditions": {
-      "type": "text"
+      "type": "text",
+      "default": "Contrat d'assurance habitation occupant obligatoire. Justificatif demandé. Transfert et ouverture d'un contrat d'électricité auprès d'un fournisseur d'énergie à effectuer"
     },
     "depot": {
       "type": "string"
@@ -51,11 +41,6 @@
     },
     "duree": {
       "type": "string"
-    },
-    "bailleur": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::bailleur.bailleur"
     },
     "travaux": {
       "displayName": "travaux",
@@ -70,6 +55,25 @@
       "repeatable": false,
       "component": "contract.object",
       "required": true
+    },
+    "locataires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::locataire.locataire",
+      "mappedBy": "contrat"
+    },
+    "logement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rent.rent"
+    },
+    "bailleur": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bailleur.bailleur"
+    },
+    "contract_name": {
+      "type": "string"
     }
   }
 }

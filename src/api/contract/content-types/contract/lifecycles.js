@@ -8,6 +8,9 @@ const HelveticaBold = require("pdfjs/font/Helvetica-Bold.js");
 const HelveticaOblique = require("pdfjs/font/Helvetica-Oblique.js");
 
 const loadPDFContract = (result) => {
+  console.log(
+    result
+  );
   const doc = new pdf.Document();
 
   doc
@@ -418,15 +421,18 @@ Qualité du bailleur :`
 };
 
 module.exports = {
-  async afterCreate(event) {
+  async afterCreate (event) {
     const { result } = event;
-
+    const logementWithAmenities = await strapi.entityService.findOne("api::rent.rent", result.logement.id, {
+      populate: ["amenities"],
+    });
+    console.log("amenities :", logementWithAmenities);
     loadPDFContract(result);
   },
-  async beforeUpdate(event) {
+  async beforeUpdate (event) {
     event.params.data.contract = null;
   },
-  async afterUpdate(event) {
+  async afterUpdate (event) {
     const { result } = event;
 
     loadPDFContract(result);

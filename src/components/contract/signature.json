@@ -2,7 +2,8 @@
   "collectionName": "components_contract_signatures",
   "info": {
     "displayName": "signature",
-    "icon": "align-center"
+    "icon": "align-center",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,7 +11,8 @@
       "type": "date"
     },
     "lieu": {
-      "type": "string"
+      "type": "string",
+      "default": "Paris"
     }
   }
 }

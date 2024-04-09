@@ -18,9 +18,6 @@
     "last_name": {
       "type": "string"
     },
-    "denominator": {
-      "type": "string"
-    },
     "email": {
       "type": "email"
     },
@@ -29,6 +26,13 @@
     },
     "address": {
       "type": "string"
+    },
+    "denominator": {
+      "type": "enumeration",
+      "enum": [
+        "Mr",
+        "Mme"
+      ]
     }
   }
 }
