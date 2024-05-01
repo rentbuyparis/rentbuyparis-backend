@@ -69,12 +69,16 @@ Qualité du bailleur :`
         font: HelveticaBold,
       }
     );
-  doc
+  result?.cacher_info_proprio ? null : doc
     .text(`Adresse : `)
     .append(` ${result.bailleur?.address ?? ""}`, { font: HelveticaBold });
+
   doc
     .text(`Adresse email :`)
-    .append(` ${result.bailleur?.email ?? ""}`, { font: HelveticaBold })
+    .append(` ${result?.cacher_info_proprio ? "stephanjaquet@yahoo.com" : result.bailleur?.email ?? ""}`, { font: HelveticaBold })
+  doc
+    .text(`Numéro de téléphone :`)
+    .append(` ${result?.cacher_info_proprio ? "+33 6 72 64 44 44" : result.bailleur?.phone ?? ""}`, { font: HelveticaBold })
     .br();
   doc
     .text(`désigné (s) ci-après`)
@@ -95,7 +99,7 @@ Qualité du bailleur :`
   doc.text(
     `Le présent contrat a pour objet la location d'un logement ainsi déterminé :`
   ).br();
-  doc.text(`    A. Consistance du logement`, {}).br();
+  doc.text(`    A. Consistance du logement`, { font: HelveticaBold }).br();
   doc.text(`Adresse du logement`);
   doc.text(`${result.object?.address ?? ""}`, {
     font: HelveticaBold,
@@ -132,20 +136,20 @@ Qualité du bailleur :`
   doc
     .text(
       `
-  B. Destination des locaux :`
+       B. Destination des locaux :` , { font: HelveticaBold }
     )
     .append(` ${result.object?.destination ?? ""}`, { font: HelveticaBold })
     .br();
   doc
     .text(
       `
-  C. Désignation des locaux et équipements accessoires de l'immeuble à usage privatif du locataire : ${result.object.designation}`
-    )
+       C. Désignation des locaux et équipements accessoires de l'immeuble à usage privatif du locataire : `, { font: HelveticaBold }).append(`${result.object.designation}`
+      )
     .br();
   doc
     .text(
       `
-  D. Le cas échéant, Énumération des locaux, parties, équipements et accessoires de l'immeuble à usage commun : `
+       D. Le cas échéant, Énumération des locaux, parties, équipements et accessoires de l'immeuble à usage commun : `, { font: HelveticaBold }
     )
     .append(` ${result.object?.enumeration ?? ""}`, {
       font: HelveticaBold,
@@ -154,7 +158,7 @@ Qualité du bailleur :`
   doc
     .text(
       `
-  E. Équipement d'accès aux technologies de l'information et de la communication [modalités de réception de la télévision dans l'immeuble, modalités de raccordement internet etc.] : `
+       E. Équipement d'accès aux technologies de l'information et de la communication [modalités de réception de la télévision dans l'immeuble, modalités de raccordement internet etc.] : `, { font: HelveticaBold }
     )
     .append(` ${result.object?.technology ?? ""}`, { font: HelveticaBold })
     .br();
@@ -407,7 +411,7 @@ Qualité du bailleur :`
         },
         files: {
           path: tempPDF.name,
-          name: `contrat_${result.locataires[0]?.last_name ?? ""}${result.id}${"_" + result.updatedAt
+          name: `contrat_bail_meuble_${result.locataires[0]?.last_name ?? ""}${result.id}${"_" + result.updatedAt
             }.pdf`,
           type: "application/pdf",
           size: fileStat.size,

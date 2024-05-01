@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_contract_charges_recuperables",
+  "info": {
+    "displayName": "Charges récupérables"
+  },
+  "options": {},
+  "attributes": {
+    "montant_forfait_charge": {
+      "type": "string"
+    }
+  }
+}

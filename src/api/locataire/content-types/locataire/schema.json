@@ -39,6 +39,24 @@
       "relation": "manyToOne",
       "target": "api::contract.contract",
       "inversedBy": "locataires"
+    },
+    "situation_locataire": {
+      "type": "enumeration",
+      "enum": [
+        "Formation professionnelle",
+        "etudes supérieures",
+        "contrat d'apprentissage",
+        "stage",
+        "engagement volontaire dans le cadre d'un service civique",
+        "mutation professionnelle",
+        "mission temporaire dans le cadre de son activité professionnelle"
+      ]
+    },
+    "contrats_bail_mobilite": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contrats-bail-mobilite.contrats-bail-mobilite",
+      "inversedBy": "locataires"
     }
   }
 }

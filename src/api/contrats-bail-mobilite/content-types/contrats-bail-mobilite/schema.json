@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contrats_bail_mobilites",
+  "info": {
+    "singularName": "contrats-bail-mobilite",
+    "pluralName": "contrats-bail-mobilites",
+    "displayName": "Contrats Bail Mobilité",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contrat": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "consistance_logement": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contract.object"
+    },
+    "signature": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contract.signature"
+    },
+    "loyer": {
+      "displayName": "loyer",
+      "type": "component",
+      "repeatable": false,
+      "component": "contract.loyer"
+    },
+    "charges_recuperables": {
+      "displayName": "Charges récupérables",
+      "type": "component",
+      "repeatable": false,
+      "component": "contract.charges-recuperables"
+    },
+    "travaux": {
+      "type": "text"
+    },
+    "autres_conditions_particulieres": {
+      "type": "text"
+    },
+    "contract_name": {
+      "type": "string"
+    },
+    "bailleur": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bailleur.bailleur"
+    },
+    "locataires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::locataire.locataire",
+      "mappedBy": "contrats_bail_mobilite"
+    },
+    "logement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rent.rent"
+    },
+    "cacher_info_proprio": {
+      "type": "boolean"
+    }
+  }
+}

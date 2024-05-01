@@ -35,21 +35,40 @@
       "type": "string",
       "default": "Individuel"
     },
-    "destination": {
+    "usage_privatif": {
       "type": "string",
       "default": "Usage d'habitation"
     },
-    "designation": {
-      "type": "string",
-      "default": "Usage d'habitation"
-    },
-    "enumeration": {
+    "autres_parties_logement": {
       "type": "string",
       "default": "Ascenseur et local poubelle"
     },
     "technology": {
       "type": "text",
       "default": "Appartement fibré"
+    },
+    "regime_juridique": {
+      "type": "enumeration",
+      "enum": [
+        "immeuble en copropriété",
+        "immeuble  en monopropriété"
+      ]
+    },
+    "type_habitat": {
+      "type": "enumeration",
+      "enum": [
+        "immeuble collectif",
+        "immeuble individuel"
+      ]
+    },
+    "identifiant_fiscal_logement": {
+      "type": "string"
+    },
+    "niveau_performance_energetique": {
+      "type": "string"
+    },
+    "usage_commun": {
+      "type": "string"
     }
   }
 }

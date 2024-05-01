@@ -4,7 +4,7 @@
   "info": {
     "singularName": "contract",
     "pluralName": "contracts",
-    "displayName": "Contrats",
+    "displayName": "Contrats Bail Meublé",
     "description": ""
   },
   "options": {
@@ -74,6 +74,9 @@
     },
     "contract_name": {
       "type": "string"
+    },
+    "cacher_info_proprio": {
+      "type": "boolean"
     }
   }
 }

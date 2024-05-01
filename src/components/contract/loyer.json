@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_contract_loyers",
+  "info": {
+    "displayName": "loyer",
+    "icon": "dollar-sign",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "montant_loyer_mensuel": {
+      "type": "string"
+    },
+    "montant_loyer_reference": {
+      "type": "string"
+    },
+    "montant_loyer_reference_majore": {
+      "type": "string"
+    },
+    "periodicite_paiement": {
+      "type": "string"
+    },
+    "paiement": {
+      "type": "enumeration",
+      "enum": [
+        "à échoir",
+        "à terme échu"
+      ]
+    },
+    "date_ou_periode_paiement": {
+      "type": "string"
+    },
+    "cas_echeant_loyer_dernier_locataire": {
+      "type": "string"
+    },
+    "cas_echeant_montant_total_du_premier_paiement": {
+      "type": "string"
+    }
+  }
+}
