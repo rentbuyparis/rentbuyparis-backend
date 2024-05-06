@@ -365,7 +365,7 @@ Qualité du bailleur :`
                 },
                 files: {
                     path: tempPDF.name,
-                    name: `contrat_bail_mobilite_${result.locataires[0]?.last_name ?? ""}${result.id}${"_" + result.updatedAt
+                    name: `contrat_bail_mobilite_${result.locataires[0]?.last_name ?? ""}${result?.contract_name}${"_" + result.updatedAt
                         }.pdf`,
                     type: "application/pdf",
                     size: fileStat.size,

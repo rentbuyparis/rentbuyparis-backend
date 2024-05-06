@@ -100,16 +100,15 @@ Qualité du bailleur :`
     `Le présent contrat a pour objet la location d'un logement ainsi déterminé :`
   ).br();
   doc.text(`    A. Consistance du logement`, { font: HelveticaBold }).br();
-  doc.text(`Adresse du logement`);
-  doc.text(`${result.object?.address ?? ""}`, {
+  doc.text(`Adresse du logement :`).append(`${result.object?.address ?? ""}`, {
     font: HelveticaBold,
   });
   doc
     .text(`Période de construction :`)
-    .append(` ${result.object?.periode_construction}`);
+    .append(` ${result.object?.periode_construction}`, { font: HelveticaBold });
   doc
     .text(`- surface habitable :`)
-    .append(` ${result.object?.surface ?? ""}`, { font: HelveticaBold });
+    .append(` ${result.object?.surface ?? ""}`, { font: HelveticaBold }).append(" m²", { font: HelveticaBold });
   doc
     .text(`- nombre de pièces principales : `)
     .append(` ${result.object?.pieces ?? ""}`, { font: HelveticaBold });
@@ -138,30 +137,31 @@ Qualité du bailleur :`
       `
        B. Destination des locaux :` , { font: HelveticaBold }
     )
-    .append(` ${result.object?.destination ?? ""}`, { font: HelveticaBold })
+    .append(` ${result.object?.destination ?? ""}`, { font: Helvetica })
     .br();
   doc
     .text(
       `
-       C. Désignation des locaux et équipements accessoires de l'immeuble à usage privatif du locataire : `, { font: HelveticaBold }).append(`${result.object.designation}`
-      )
-    .br();
+       C. Désignation des locaux et équipements accessoires de l'immeuble à usage privatif du locataire : `, { font: HelveticaBold }).br();
+
+  doc.text(`${result.object.usage_privatif}`).br();
+
   doc
     .text(
       `
        D. Le cas échéant, Énumération des locaux, parties, équipements et accessoires de l'immeuble à usage commun : `, { font: HelveticaBold }
     )
-    .append(` ${result.object?.enumeration ?? ""}`, {
-      font: HelveticaBold,
+    .append(` ${result.object?.usage_commun ?? ""}`, {
+      font: Helvetica,
     })
     .br();
   doc
     .text(
       `
        E. Équipement d'accès aux technologies de l'information et de la communication [modalités de réception de la télévision dans l'immeuble, modalités de raccordement internet etc.] : `, { font: HelveticaBold }
-    )
-    .append(` ${result.object?.technology ?? ""}`, { font: HelveticaBold })
-    .br();
+    ).br();
+
+  doc.text(` ${result.object?.technology ?? ""}`, { font: Helvetica }).br();
   doc
     .text(
       `
@@ -171,8 +171,7 @@ Qualité du bailleur :`
     .br();
   doc.text(`
   La durée du contrat et sa date de prise d'effet sont ainsi définies :`);
-  doc.text(`
-  A. Date de prise d'effet du contrat : ${result.date ?? ""}`);
+  doc.text(`  A. Date de prise d'effet du contrat : `).append(`${result.date ?? ""}`, { font: HelveticaBold }).br();
   doc
     .text(
       `
@@ -213,7 +212,7 @@ Qualité du bailleur :`
       `
   Montant du loyer mensuel² : `
     )
-    .append(` ${result.montant ?? ""}`, {
+    .append(` ${result.montant ?? ""} €`, {
       font: HelveticaBold,
     })
     .br();
@@ -254,24 +253,24 @@ Qualité du bailleur :`
     })
     .br();
   doc.text(`
-  Mention obligatoire s'appliquant aux logements dont la consommation énergétique, déterminée selon la méthode du diagnostic de performance énergétique mentionné à l'article L. 126-26 du code de la construction et de l'habitation, excède le seuil fixé au I de l'article L. 173-2 du même code.`);
+  Mention obligatoire s'appliquant aux logements dont la consommation énergétique, déterminée selon la méthode du diagnostic de performance énergétique mentionné à l'article L. 126-26 du code de la construction et de l'habitation, excède le seuil fixé au I de l'article L. 173-2 du même code.`, { fontSize: 9 });
   doc
     .text(
       `
   Lorsqu'un complément de loyer est appliqué, le loyer mensuel s'entend comme la somme du loyer de base et de ce
-  complément.`
+  complément.`, { fontSize: 9 }
     )
     .br();
   doc
     .text(
       `
-  Le cas échéant, préciser par ailleurs le montant des travaux d'amélioration effectués au cours des six derniers mois.`
+  Le cas échéant, préciser par ailleurs le montant des travaux d'amélioration effectués au cours des six derniers mois.`, { fontSize: 9 }
     )
     .br();
   doc
     .text(
       `
-  Clause invalide pour les travaux de mise en conformité aux caractéristiques de décence;`
+  Clause invalide pour les travaux de mise en conformité aux caractéristiques de décence;`, { fontSize: 9 }
     )
     .br();
 
@@ -305,7 +304,7 @@ Qualité du bailleur :`
   doc
     .text(
       `
-  Modalités particulières des obligations en cas de pluralité de locataires : en cas de colocation, c'est à dire de la location d'un même logement par plusieurs locataires, constituant leur résidence principale et formalisée par la conclusion d'un contrat unique ou de plusieurs contrats entre les locataires et le bailleur, les locataires sont tenus conjointement, solidairement et indivisiblement à l'égard du bailleur au paiement des loyers, charges et accessoires dus en application du présent bail. La solidarité d'un des colocataires et celle de la personne qui s'est portée caution pour lui prennent fin à la date d'effet du congé régulièrement délivré et lorsqu'un nouveau colocataire figure au bail. A défaut, la solidarité du colocataire sortant s'éteint au plus tard à l'expiration d'un délai de six mois après la date d'effet du congé.`
+  Modalités particulières des obligations en cas de pluralité de locataires : en cas de colocation, c'est à dire de la location d'un même logement par plusieurs locataires, constituant leur résidence principale et formalisée par la conclusion d'un contrat unique ou de plusieurs contrats entre les locataires et le bailleur, les locataires sont tenus conjointement, solidairement et indivisiblement à l'égard du bailleur au paiement des loyers, charges et accessoires dus en application du présent bail. La solidarité d'un des colocataires et celle de la personne qui s'est portée caution pour lui prennent fin à la date d'effet du congé régulièrement délivré et lorsqu'un nouveau colocataire figure au bail. A défaut, la solidarité du colocataire sortant s'éteint au plus tard à l'expiration d'un délai de six mois après la date d'effet du congé.`, { fontSize: 9 }
     )
     .br();
   doc
@@ -320,7 +319,7 @@ Qualité du bailleur :`
   doc
     .text(
       `
-  Modalités de résiliation de plein droit du contrat : Le bail sera résilié de plein droit en cas d'inexécution des obligations du locataire, soit en cas de défaut de paiement des loyers et des charges locatives au terme convenu, de non-versement du dépôt de garantie, de défaut d'assurance du locataire contre les risques locatifs, de troubles de voisinage constatés par une décision de justice passée en force de chose jugée rendue au profit d'un tiers. Le bailleur devra assigner le locataire devant le tribunal pour faire constater l'acquisition de la clause résolutoire et la résiliation de plein droit du bail. Lorsque le bailleur souhaite mettre en œuvre la clause résolutoire pour défaut de paiement des loyers et des charges ou pour non- versement du dépôt de garantie, il doit préalablement faire signifier au locataire, par acte d'huissier, un commandement de payer, qui doit mentionner certaines informations et notamment la faculté pour le locataire de saisir le fonds de solidarité pour le logement. De plus, pour les bailleurs personnes physiques ou les sociétés immobilières familiales, le commandement de payer doit être signalé par l'huissier à la commission de coordination des actions de prévention des expulsions locatives dès lors que l'un des seuils relatifs au montant et à l'ancienneté de la dette, fixé par arrêté préfectoral, est atteint. Le locataire peut, à compter de la réception du commandement, régler sa dette, saisir le juge d'instance pour demander des délais de paiement, voire demander ponctuellement une aide financière à un fonds de solidarité pour le logement. Si le locataire ne s'est pas acquitté des sommes dues dans les deux mois suivant la signification, le bailleur peut alors assigner le locataire en justice pour faire constater la résiliation de plein droit du bail. En cas de défaut d'assurance, le bailleur ne peut assigner en justice le locataire pour faire constater l'acquisition de la clause résolutoire qu'après un délai d'un mois après un commandement demeuré infructueux.`
+  Modalités de résiliation de plein droit du contrat : Le bail sera résilié de plein droit en cas d'inexécution des obligations du locataire, soit en cas de défaut de paiement des loyers et des charges locatives au terme convenu, de non-versement du dépôt de garantie, de défaut d'assurance du locataire contre les risques locatifs, de troubles de voisinage constatés par une décision de justice passée en force de chose jugée rendue au profit d'un tiers. Le bailleur devra assigner le locataire devant le tribunal pour faire constater l'acquisition de la clause résolutoire et la résiliation de plein droit du bail. Lorsque le bailleur souhaite mettre en œuvre la clause résolutoire pour défaut de paiement des loyers et des charges ou pour non- versement du dépôt de garantie, il doit préalablement faire signifier au locataire, par acte d'huissier, un commandement de payer, qui doit mentionner certaines informations et notamment la faculté pour le locataire de saisir le fonds de solidarité pour le logement. De plus, pour les bailleurs personnes physiques ou les sociétés immobilières familiales, le commandement de payer doit être signalé par l'huissier à la commission de coordination des actions de prévention des expulsions locatives dès lors que l'un des seuils relatifs au montant et à l'ancienneté de la dette, fixé par arrêté préfectoral, est atteint. Le locataire peut, à compter de la réception du commandement, régler sa dette, saisir le juge d'instance pour demander des délais de paiement, voire demander ponctuellement une aide financière à un fonds de solidarité pour le logement. Si le locataire ne s'est pas acquitté des sommes dues dans les deux mois suivant la signification, le bailleur peut alors assigner le locataire en justice pour faire constater la résiliation de plein droit du bail. En cas de défaut d'assurance, le bailleur ne peut assigner en justice le locataire pour faire constater l'acquisition de la clause résolutoire qu'après un délai d'un mois après un commandement demeuré infructueux.`, { fontSize: 9 }
     )
     .append(
       `Clause applicable selon les modalités décrites au paragraphe 4.3.2.1. de la notice d'information jointe au présent bail.`,
@@ -411,7 +410,7 @@ Qualité du bailleur :`
         },
         files: {
           path: tempPDF.name,
-          name: `contrat_bail_meuble_${result.locataires[0]?.last_name ?? ""}${result.id}${"_" + result.updatedAt
+          name: `contrat_bail_meuble_${result.locataires[0]?.last_name ?? ""}${result?.contract_name}${"_" + result.updatedAt
             }.pdf`,
           type: "application/pdf",
           size: fileStat.size,

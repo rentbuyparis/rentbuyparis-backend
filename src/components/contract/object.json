@@ -37,7 +37,7 @@
     },
     "usage_privatif": {
       "type": "string",
-      "default": "Usage d'habitation"
+      "default": "Usage d'habitation, équipements"
     },
     "autres_parties_logement": {
       "type": "string",
@@ -69,6 +69,10 @@
     },
     "usage_commun": {
       "type": "string"
+    },
+    "destination": {
+      "type": "string",
+      "default": "Usage d'habitation"
     }
   }
 }
