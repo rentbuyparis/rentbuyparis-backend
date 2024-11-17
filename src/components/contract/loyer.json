@@ -28,12 +28,6 @@
     },
     "date_ou_periode_paiement": {
       "type": "string"
-    },
-    "cas_echeant_loyer_dernier_locataire": {
-      "type": "string"
-    },
-    "cas_echeant_montant_total_du_premier_paiement": {
-      "type": "string"
     }
   }
 }

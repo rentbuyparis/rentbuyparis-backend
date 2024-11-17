@@ -57,6 +57,15 @@
       "relation": "manyToOne",
       "target": "api::contrats-bail-mobilite.contrats-bail-mobilite",
       "inversedBy": "locataires"
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "birthPlace": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string"
     }
   }
 }

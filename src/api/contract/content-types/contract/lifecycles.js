@@ -426,10 +426,14 @@ Qualité du bailleur :`
 module.exports = {
   async afterCreate (event) {
     const { result } = event;
+    console.log(event);
     const logementWithAmenities = await strapi.entityService.findOne("api::rent.rent", result.logement.id, {
-      populate: ["amenities"],
+      populate: {
+        amenities: true,
+      },
     });
     console.log("amenities :", logementWithAmenities);
+    result.object.amenities = logementWithAmenities.amenities;
     loadPDFContract(result);
   },
   async beforeUpdate (event) {
@@ -438,6 +442,12 @@ module.exports = {
   async afterUpdate (event) {
     const { result } = event;
 
+    const logementWithAmenities = await strapi.entityService.findOne("api::rent.rent", result.logement.id, {
+      populate: {
+        amenities: true,
+      },
+    });
+    result.object.amenities = logementWithAmenities.amenities;
     loadPDFContract(result);
   },
 };

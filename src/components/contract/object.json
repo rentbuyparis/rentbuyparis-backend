@@ -61,9 +61,6 @@
         "immeuble individuel"
       ]
     },
-    "identifiant_fiscal_logement": {
-      "type": "string"
-    },
     "niveau_performance_energetique": {
       "type": "string"
     },

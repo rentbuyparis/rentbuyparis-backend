@@ -33,6 +33,16 @@
         "Mr",
         "Mme"
       ]
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "birthPlace": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string",
+      "default": "Française"
     }
   }
 }

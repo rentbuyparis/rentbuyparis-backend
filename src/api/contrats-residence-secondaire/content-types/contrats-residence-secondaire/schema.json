@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contrats_residence_secondaires",
+  "info": {
+    "singularName": "contrats-residence-secondaire",
+    "pluralName": "contrats-residence-secondaires",
+    "displayName": "Contrats Résidence Secondaire",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contract": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "date_debut_bail": {
+      "type": "date"
+    },
+    "bailleur": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bailleur.bailleur"
+    },
+    "logement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rent.rent"
+    },
+    "locataire": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::locataire.locataire"
+    },
+    "contract_name": {
+      "type": "string"
+    },
+    "cacher_info_proprio": {
+      "type": "boolean"
+    },
+    "date_fin_bail": {
+      "type": "date"
+    },
+    "numJourPaiement": {
+      "type": "string"
+    },
+    "depot": {
+      "type": "string"
+    },
+    "datePremierPaiement": {
+      "type": "date"
+    },
+    "garant_caution_name": {
+      "type": "string"
+    },
+    "garant_caution_address": {
+      "type": "string"
+    },
+    "montant_loyer": {
+      "type": "string"
+    },
+    "duree_bail_mois": {
+      "type": "string"
+    },
+    "date_signature": {
+      "type": "date"
+    },
+    "lieu_signature": {
+      "type": "string"
+    }
+  }
+}
